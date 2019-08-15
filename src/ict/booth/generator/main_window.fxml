@@ -1,0 +1,56 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<BorderPane fx:controller="ict.booth.generator.MainWindow"
+            xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <MenuBar style="-fx-background-color: aliceblue">
+            <Menu text="File">
+                <Menu text="Generate">
+                    <MenuItem fx:id="menu_full_generate" text="Full Generate" onAction="#onMenuFullGenerate"/>
+                    <MenuItem fx:id="menu_half_generate" text="Half Generate" onAction="#onMenuHalfGenerate"/>
+                </Menu>
+            </Menu>
+
+            <Menu text="Admin">
+                <Menu text="Command">
+                    <MenuItem text="Reset" onAction="#onMenuReset"/>
+                </Menu>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+
+        <GridPane alignment="center" hgap="10" vgap="10"
+                  style="-fx-background-color: azure">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" percentWidth="100"/>
+            </columnConstraints>
+
+            <Label fx:id="lbl_number" text="0" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <font>
+                    <Font size="180" name="Times New Roman Bold"/>
+                </font>
+            </Label>
+            <Button fx:id="btn_start" text="Start" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                    onAction="#onButtonClicked">
+                <font>
+                    <Font size="20"/>
+                </font>
+            </Button>
+
+        </GridPane>
+
+
+    </center>
+
+</BorderPane>
