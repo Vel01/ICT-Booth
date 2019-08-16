@@ -20,7 +20,7 @@ public class MainWindow {
         try {
             String s = Platform.isFxApplicationThread() ? "UI Thread" : "Background Thread";
             System.out.println("I'm going to sleep on the: " + s);
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             Platform.runLater(new Runnable() {
                 @Override
