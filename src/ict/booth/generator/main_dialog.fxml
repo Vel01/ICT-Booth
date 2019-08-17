@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+<DialogPane fx:controller="ict.booth.generator.MainWindow"
+            xmlns:fx="http://javafx.com/fxml">
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <Label text="try again?" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <font>
+                    <Font size="14" name="Times New Roman Bold"/>
+                </font>
+            </Label>
+        </GridPane>
+    </content>
+</DialogPane>

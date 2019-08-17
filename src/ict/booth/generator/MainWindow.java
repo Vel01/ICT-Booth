@@ -1,60 +1,72 @@
 package ict.booth.generator;
 
-import ict.booth.generator.classes.Generator;
-import ict.booth.generator.classes.MyBuffer;
-import ict.booth.generator.classes.Settings;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class MainWindow {
     @FXML
     private Label lbl_number;
+    @FXML
+    private BorderPane id_main_window;
+
     private final static String PATH_ELIMINATED_NUMBERS = "ict_eliminated_numbers.txt";
+    private static List<Integer> keys = new ArrayList<>();
 
-    private static Settings settings = new Settings();
-    private Generator generator = new Generator();
-
+    @FXML
     public void onButtonClicked() {
 
-        try {
-            String s = Platform.isFxApplicationThread() ? "UI Thread" : "Background Thread";
-            System.out.println("I'm going to sleep on the: " + s);
-            Thread.sleep(1000);
+        int value = rand(10);
+        if (value != -1) {
+            lbl_number.setText(String.valueOf(value));
+            System.out.println(value);
+            showDialog();
+            return;
+        }
+        lbl_number.setText("0");
 
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    String s = Platform.isFxApplicationThread() ? "UI Thread" : "Background Thread";
-                    System.out.println("I'm updating the label on the: " + s);
-                    System.out.println("We did something!");
-                    System.out.println("Button was clicked: " + lbl_number.getText());
-                    String value = generator.picked();
-                    if (value != null) {
-                        settings.save(value, "ict_eliminated_numbers.txt");
-                        lbl_number.setText(value);
-                    } else lbl_number.setText("0");
+    }
 
-                }
-            });
-        } catch (InterruptedException event) {
-            // I don't care about this...
+    private static int rand(int max) {
+        if (keys.size() == max) return -1;
+
+        int n = (int) (Math.random() * max) + 1;
+
+        if (!keys.contains(n)) {
+            keys.add(n);
+            return n;
         }
 
+        return rand(max);
     }
 
-    public void onMenuFullGenerate() {
-        settings.generate();
-    }
+    @FXML
+    private void showDialog() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(id_main_window.getScene().getWindow());
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("main_dialog.fxml"));
+            dialog.getDialogPane().setContent(root);
 
-    public void onMenuHalfGenerate() {
-        settings.generatedWithoutEliminatedNumbers(PATH_ELIMINATED_NUMBERS);
-    }
+        } catch (IOException e) {
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
 
-    public void onMenuReset(){
-        MyBuffer myBuffer = new MyBuffer();
-        myBuffer.delete(PATH_ELIMINATED_NUMBERS);
-        myBuffer.createFiles(PATH_ELIMINATED_NUMBERS);
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            System.out.println("Ok pressed");
+        }
     }
-
 }

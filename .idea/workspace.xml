@@ -7,11 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ict/booth/generator/main_dialog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booth.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Booth.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ict_eliminated_numbers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ict_eliminated_numbers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ict_numbers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ict_numbers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Booth/ict/booth/generator/main_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Booth/ict/booth/generator/main_window.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ict/booth/generator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ict/booth/generator/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ict/booth/generator/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ict/booth/generator/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ict/booth/generator/classes/Generator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ict/booth/generator/classes/MyBuffer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ict/booth/generator/classes/Number.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ict/booth/generator/classes/Settings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ict/booth/generator/main_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ict/booth/generator/main_window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +79,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -100,18 +111,24 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/Booth_jar/Booth.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ariel Namias Austria\IdeaProjects\Booth\src\sample" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ariel Namias Austria\IdeaProjects\Booth\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ariel Namias Austria\IdeaProjects\Booth\src\sample" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -213,6 +230,9 @@
       <workItem from="1565911992469" duration="1320000" />
       <workItem from="1565925649788" duration="407000" />
       <workItem from="1565929669299" duration="30000" />
+      <workItem from="1566035747438" duration="12129000" />
+      <workItem from="1566048414929" duration="2196000" />
+      <workItem from="1566052254578" duration="1470000" />
     </task>
     <servers />
   </component>
