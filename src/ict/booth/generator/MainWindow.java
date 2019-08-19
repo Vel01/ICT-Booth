@@ -25,7 +25,7 @@ public class MainWindow {
     @FXML
     public void onButtonClicked() {
 
-        int value = rand(10);
+        int value = rand(600);
         if (value != -1) {
             lbl_number.setText(String.valueOf(value));
             System.out.println(value);
@@ -62,9 +62,10 @@ public class MainWindow {
             e.printStackTrace();
             return;
         }
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
 
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         Optional<ButtonType> result = dialog.showAndWait();
+
         if (result.isPresent() && result.get() == ButtonType.OK) {
             System.out.println("Ok pressed");
         }
