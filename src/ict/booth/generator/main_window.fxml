@@ -1,6 +1,4 @@
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,13 +13,11 @@
     <top>
         <MenuBar style="-fx-background-color: aliceblue">
             <Menu text="Admin">
-                <Menu text="Generate">
-                    <MenuItem text="Full Generate" />
-                    <MenuItem text="Half Generate" />
-                </Menu>
-                <SeparatorMenuItem/>
                 <Menu text="Command">
-                    <MenuItem text="Reset" />
+                    <MenuItem text="Save" onAction="#backUp"/>
+                    <MenuItem text="load" onAction="#retrieve"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Reset" onAction="#reset"/>
                 </Menu>
             </Menu>
         </MenuBar>

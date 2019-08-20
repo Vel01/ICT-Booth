@@ -9,8 +9,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    private final static String PATH_ELIMINATED_NUMBERS = "ict_eliminated_numbers.txt";
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("main_window.fxml"));
         primaryStage.setTitle("Generator");
         primaryStage.setScene(new Scene(root, 700, 600));
@@ -20,7 +22,7 @@ public class Main extends Application {
         primaryStage.show();
 
         System.out.println("nag start");
-        // TODO: 8/17/2019 retrieved the eliminated numbers here....
+        MainWindow.receiver(MyBuffer.load(PATH_ELIMINATED_NUMBERS));
     }
 
     public static void main(String[] args) {
@@ -29,7 +31,7 @@ public class Main extends Application {
 
     @Override
     public void stop() throws Exception {
-        // TODO: 8/17/2019 save the numbers that already eliminated here...
         System.out.println("tumigil");
+        MyBuffer.write(PATH_ELIMINATED_NUMBERS);
     }
 }

@@ -14,12 +14,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class MainWindow {
+
     @FXML
     private Label lbl_number;
     @FXML
     private BorderPane id_main_window;
 
-    private final static String PATH_ELIMINATED_NUMBERS = "ict_eliminated_numbers.txt";
+    private final static String PATH_BACKUP_NUMBERS = "ict_backup_numbers.txt";
     private static List<Integer> keys = new ArrayList<>();
 
     @FXML
@@ -33,20 +34,21 @@ public class MainWindow {
             return;
         }
         lbl_number.setText("0");
-
     }
 
-    private static int rand(int max) {
-        if (keys.size() == max) return -1;
+    @FXML
+    public void reset() throws IOException {
+        if (MyBuffer.clear()) keys.clear();
+    }
 
-        int n = (int) (Math.random() * max) + 1;
+    @FXML
+    public void backUp() throws IOException {
+        MyBuffer.write(PATH_BACKUP_NUMBERS);
+    }
 
-        if (!keys.contains(n)) {
-            keys.add(n);
-            return n;
-        }
-
-        return rand(max);
+    @FXML
+    public void retrieve() throws IOException {
+        keys.addAll(MyBuffer.load(PATH_BACKUP_NUMBERS));
     }
 
     @FXML
@@ -70,4 +72,23 @@ public class MainWindow {
             System.out.println("Ok pressed");
         }
     }
+
+    private static int rand(int max) {
+        if (keys.size() == max) return -1;
+        int n = (int) (Math.random() * max) + 1;
+        if (!keys.contains(n)) {
+            keys.add(n);
+            return n;
+        }
+        return rand(max);
+    }
+
+    static void receiver(List<Integer> list) {
+        keys.addAll(list);
+    }
+
+    static List<Integer> getKeys() {
+        return new ArrayList<>(keys);
+    }
+
 }
