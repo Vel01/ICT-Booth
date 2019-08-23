@@ -54,4 +54,13 @@ final class MyBuffer {
             return true;
         }
     }
+    static boolean fullClear(String filePath) throws IOException {
+        clear();
+        Path path = Paths.get(filePath);
+        try (BufferedWriter bufferedWriter = Files.newBufferedWriter(path)) {
+            bufferedWriter.write("");
+            System.out.println("Successfully Reset!");
+            return true;
+        }
+    }
 }

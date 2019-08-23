@@ -1,12 +1,15 @@
 package ict.booth.generator;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Screen;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +23,7 @@ public class MainWindow {
     @FXML
     private BorderPane id_main_window;
 
+    private final static String PATH_ELIMINATED_NUMBERS = "ict_eliminated_numbers.txt";
     private final static String PATH_BACKUP_NUMBERS = "ict_backup_numbers.txt";
     private static List<Integer> keys = new ArrayList<>();
 
@@ -37,17 +41,29 @@ public class MainWindow {
     }
 
     @FXML
-    public void reset() throws IOException {
+    public void coldReset() throws IOException {
         if (MyBuffer.clear()) keys.clear();
     }
 
     @FXML
-    public void backUp() throws IOException {
+    public void hardReset() throws IOException {
+        if (MyBuffer.fullClear(PATH_BACKUP_NUMBERS)) keys.clear();
+        lbl_number.setText("0");
+    }
+
+    @FXML
+    public void exit() throws IOException {
+        System.out.println("tumigil");
+        MyBuffer.write(PATH_ELIMINATED_NUMBERS);
         MyBuffer.write(PATH_BACKUP_NUMBERS);
+        Platform.exit();
+        System.exit(0);
     }
 
     @FXML
     public void retrieve() throws IOException {
+        keys.clear();
+        lbl_number.setText("0");
         keys.addAll(MyBuffer.load(PATH_BACKUP_NUMBERS));
     }
 
@@ -58,7 +74,9 @@ public class MainWindow {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("main_dialog.fxml"));
             dialog.getDialogPane().setContent(root);
-
+            Rectangle2D bounds = Screen.getPrimary().getBounds();
+            dialog.setX(bounds.getMaxX() - 750);
+            dialog.setY(bounds.getMaxY() - 750);
         } catch (IOException e) {
             System.out.println("Couldn't load the dialog");
             e.printStackTrace();

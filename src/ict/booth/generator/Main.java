@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private final static String PATH_ELIMINATED_NUMBERS = "ict_eliminated_numbers.txt";
+    private final static String PATH_BACKUP_NUMBERS = "ict_backup_numbers.txt";
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -33,5 +34,6 @@ public class Main extends Application {
     public void stop() throws Exception {
         System.out.println("tumigil");
         MyBuffer.write(PATH_ELIMINATED_NUMBERS);
+        MyBuffer.write(PATH_BACKUP_NUMBERS);
     }
 }

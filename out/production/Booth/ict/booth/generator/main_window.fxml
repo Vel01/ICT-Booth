@@ -8,17 +8,20 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleButton?>
 <BorderPane fx:id="id_main_window" fx:controller="ict.booth.generator.MainWindow"
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <MenuBar style="-fx-background-color: aliceblue">
             <Menu text="Admin">
                 <Menu text="Command">
-                    <MenuItem text="Save" onAction="#backUp"/>
-                    <MenuItem text="load" onAction="#retrieve"/>
+                    <!--                    <MenuItem text="Save" onAction="#backUp"/>-->
+                    <MenuItem text="Load" onAction="#retrieve"/>
                     <SeparatorMenuItem/>
-                    <MenuItem text="Reset" onAction="#reset"/>
+                    <MenuItem text="Cold Reset" onAction="#coldReset"/>
+                    <MenuItem text="Hard Reset" onAction="#hardReset"/>
                 </Menu>
+                <MenuItem text="Exit" onAction="#exit"/>
             </Menu>
         </MenuBar>
     </top>
@@ -30,17 +33,12 @@
                 <ColumnConstraints halignment="CENTER" percentWidth="100"/>
             </columnConstraints>
 
-            <Label fx:id="lbl_number" text="0" GridPane.rowIndex="0" GridPane.columnIndex="0">
+            <Label fx:id="lbl_number" text="0" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                   onMouseClicked="#onButtonClicked">
                 <font>
                     <Font size="450" name="Times New Roman Bold"/>
                 </font>
             </Label>
-            <Button text="Start" GridPane.rowIndex="1" GridPane.columnIndex="0"
-                    onAction="#onButtonClicked">
-                <font>
-                    <Font size="20"/>
-                </font>
-            </Button>
         </GridPane>
     </center>
 </BorderPane>
