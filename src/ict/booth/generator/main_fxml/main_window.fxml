@@ -9,13 +9,12 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ToggleButton?>
-<BorderPane fx:id="id_main_window" fx:controller="ict.booth.generator.MainWindow"
+<BorderPane fx:id="id_main_window" fx:controller="ict.booth.generator.main_controller.MainController"
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <MenuBar style="-fx-background-color: aliceblue">
             <Menu text="Admin">
                 <Menu text="Command">
-                    <!--                    <MenuItem text="Save" onAction="#backUp"/>-->
                     <MenuItem text="Load" onAction="#retrieve"/>
                     <SeparatorMenuItem/>
                     <MenuItem text="Cold Reset" onAction="#coldReset"/>
